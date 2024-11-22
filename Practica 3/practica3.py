@@ -17,6 +17,8 @@ df_autor_stats.columns = ['autor', 'total_mensajes']
 # Guardar los resultados en un nuevo archivo CSV
 df_autor_stats.to_csv("MensajesPorAutor.csv", index=False)
 
+
+
 df['datetime'] = pd.to_datetime(df['fecha'] + ' ' + df['hora'], dayfirst=True)
 
 # Extraer la hora y los minutos de la columna 'datetime'
@@ -39,6 +41,8 @@ top_10_mensajes = top_10_mensajes.drop(columns=['hora_extraida', 'minuto_extraid
 top_10_mensajes.to_csv('top_10_mensajes_por_minuto.csv', index=False)
 
 
+
+
 df['datetime'] = pd.to_datetime(df['fecha'] + ' ' + df['hora'], dayfirst=True)
 
 # Extraer solo la fecha (día, mes, año)
@@ -52,6 +56,8 @@ top_10_dias = mensajes_por_dia.sort_values(by='cantidad_mensajes', ascending=Fal
 
 # Guardar el top 10 en un CSV
 top_10_dias.to_csv('top_10_dias_con_mas_mensajes.csv', index=False)
+
+
 
 # Calcular la longitud de cada mensaje
 df['longitud_mensaje'] = df['mensaje'].apply(len)
